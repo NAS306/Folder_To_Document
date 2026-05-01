@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>폴더 -> 문서 변환기 v2</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="titlebar">
+    <button class="titlebar-button" onclick="window.close()">✕</button>
+  </div>
+  <div class="fullcontainer">
+  <div class="toolbar">
+    <div class="toolbar-left">
+      <h1 class="app-title">📂Folder 2 Doc v2</h1>
+    </div>
+    <div class="toolbar-right">
+      <button id="themeToggleBtn">🌙Dark Mode</button>
+    </div>
+  </div>
+
+  <div class="container">
+    <label class="upload-btn">
+      📁 Choose Folder
+      <input 
+        type="file" 
+        class="file-input" 
+        webkitdirectory 
+        directory 
+        multiple 
+        id="folderInput">
+    </label>
+
+    <div class="toggle-group">
+      <div class="toggle-btn" data-target="excludeNodeModules" data-label="node_modules" onclick="toggleOption(this)">❌node_modules</div>
+      <div class="toggle-btn" data-target="excludePackageJson" data-label="package.json" onclick="toggleOption(this)">❌package.json</div>
+      <div class="toggle-btn" data-target="excludePackageLock" data-label="package-lock.json" onclick="toggleOption(this)">❌package-lock.json</div>
+    </div>
+    <input type="checkbox" id="excludeNodeModules" style="display:none" checked>
+    <input type="checkbox" id="excludePackageJson" style="display:none">
+    <input type="checkbox" id="excludePackageLock" style="display:none" checked>
+
+    <div id="loadingMessage">⏳Processing Files...</div>
+
+    <div class="output-section">
+        <div class="output-toolbar">
+            <button class="toolbar-btn" onclick="copyText()">📋Copy Text</button>
+            <button class="toolbar-btn" onclick="downloadText()">⏬Download as .txt</button>                
+            <div class="memo-container">
+                 <textarea id="memoInput" class="toolbar-btn" placeholder="Enter Memo"></textarea>
+            </div>
+        </div>        
+      <pre id="output"></pre>
+    </div>
+  </div>
+</div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>

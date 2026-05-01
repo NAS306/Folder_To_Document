@@ -1,0 +1,255 @@
+.fullcontainer {
+    font-family: monospace;
+    max-width: 800px;
+    margin: 2rem auto;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.titlebar {
+    -webkit-app-region: drag;
+    height: 32px;
+    display: flex;
+    justify-content: flex-end; /* 오른쪽 정렬 */
+    align-items: center;       /* 세로 가운데 정렬 */
+    padding: 0 10px;           /* 좌우 여백 */
+  }
+  .titlebar-button {
+    -webkit-app-region: no-drag;
+    background-color: #e74c3c;
+    color: white;
+    border: none;
+    padding: 4px 10px;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  
+.theme-dark body {
+    background-color: #1e1e1e;
+    color: #ddd;
+}
+
+.container {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    height: 60vh;
+    transition: background 0.3s;
+}
+
+.theme-dark .container {
+    background: #2a2a2a;
+}
+
+.title, .app-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+    font-size: 2.2em;
+}
+
+.theme-dark .title, .theme-dark .app-title {
+    color: #f5f5f5;
+}
+
+.file-input {
+    display: none;
+}
+
+.upload-btn {
+    display: block;
+    width: 200px;
+    margin: 0 auto 2rem;
+    padding: 12px 24px;
+    padding-left: 1rem;
+    background: #3498db;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1.1em;
+    transition: transform 0.2s, background 0.3s;
+    text-align: center;
+}
+
+.upload-btn:hover {
+    background: #2980b9;
+    transform: translateY(-2px);
+}
+
+.toggle-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 1rem;
+}
+
+.toggle-btn {
+    width: 200px; 
+    cursor: pointer;
+    padding: 10px 18px;
+    border-radius: 5px;
+    font-weight: bold;
+    background-color: #e74c3c;
+    color: white;
+    transition: all 0.3s;
+    user-select: none;
+}
+
+.toggle-btn.active {
+    background-color: #2ecc71;
+    color: white;
+}
+
+#loadingMessage {
+    display: none;
+    color: gray;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+
+.toolbar-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background: #ecf0f1;
+    transition: background 0.2s;
+    font-weight: bold;
+    height: 35px
+}
+
+.toolbar-btn:hover {
+    background: #bdc3c7;
+}
+
+.output-toolbar {
+    position: relative;
+    display: flex;
+    gap: 10px;
+    margin-bottom: 1rem;
+}
+
+/* 메모 컨테이너를 오른쪽 끝에 배치 */
+.memo-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* 메모 입력란 기본 스타일 */
+#memoInput {
+    width: 200px;
+    height: 36px;
+    border: none;
+    border-radius: 5px;
+    padding: 8px 16px;
+    background: #ecf0f1;
+    transition: width 0.3s, height 0.3s;
+    font-weight: bold;
+    color: #2c3e50;
+    overflow: auto;
+    resize: none;
+    box-sizing: border-box;
+    position: relative;
+}
+
+/* 포커스 시 오른쪽 끝 기준으로 확장 (left 대신 right 사용) */
+#memoInput:focus {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 400px;
+    height: 120px;
+    z-index: 1000;
+    outline: none;
+}
+
+/* 출력 영역 */
+#output {
+    width: 100%;
+    height: 37vh;
+    border: 2px solid #bdc3c7;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    overflow-y: auto;
+    background: #f8f9fa;
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-dark #output {
+    background: #1c1c1c;
+    color: #eee;
+    border-color: #555;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 8px;
+    padding: 10px 20px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+    margin-bottom: 1rem;
+    transition: background 0.3s;
+}
+
+.theme-dark .toolbar {
+    background: #2e2e2e;
+}
+
+#themeToggleBtn {
+    padding: 6px 12px;
+    border-radius: 20px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    background: #ecf0f1;
+    transition: background 0.2s;
+}
+
+.theme-dark #themeToggleBtn {
+    background: #555;
+    color: #eee;
+}
+
+/* style.css 에 추가 */
+
+/* ───────── 라이트 모드 스크롤바 ───────── */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  
+::-webkit-scrollbar-track {
+    background: #f0f2f5;      /* 트랙 배경 */
+    border-radius: 4px;
+  }
+  
+::-webkit-scrollbar-thumb {
+    background: #bdc3c7;      /* 스크롤바 손잡이 */
+    border-radius: 4px;
+  }
+  
+::-webkit-scrollbar-thumb:hover {
+    background: #a0a8b0;      /* 호버 시 */
+  }
+  
+  /* ───────── 다크 모드 스크롤바 ───────── */
+  .theme-dark ::-webkit-scrollbar-track {
+    background: #2a2a2a;
+  }
+  
+  .theme-dark ::-webkit-scrollbar-thumb {
+    background: #555;
+  }
+  
+  .theme-dark ::-webkit-scrollbar-thumb:hover {
+    background: #777;
+  }
+  
